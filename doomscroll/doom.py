@@ -15,7 +15,7 @@ import sys
 import subprocess
 import random
 
-# Check and install missing packages
+
 def install_packages():
     required_packages = {
         'opencv-python': 'cv2',
@@ -42,7 +42,7 @@ def install_packages():
 # Install packages first
 install_packages()
 
-# Try to import optional packages
+
 try:
     import pygame
     pygame.mixer.init()
