@@ -417,23 +417,23 @@ class SimpleScrollDetector:
         
         output_frame = frame.copy()
         
-        # Detect face
+   
         face_detected, faces = self.detect_face(output_frame)
         
-        # Detect hand movement
+   
         hand_detected, hand_center = self.detect_hand_movement(output_frame)
         
-        # Detect motion
+     
         motion_detected, motion_score = self.detect_motion(frame)
         
-        # Simple doomscroll logic
+      
         current_time = time.time()
         
-        # Update movement time if motion detected
+      
         if motion_detected or hand_detected:
             self.last_movement_time = current_time
         
-        # Check for excessive movement (doomscrolling)
+    
         movement_duration = current_time - self.last_movement_time
         
         # If lots of movement but no face (looking at phone)
