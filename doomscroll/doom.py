@@ -69,15 +69,15 @@ class SimpleScrollDetector:
         self.focus_time_threshold = 15
         self.doomscroll_time_threshold = 5
         
-        # Sound settings
+
         self.sound_file = sound_file
         self.sound_directory = os.path.dirname(os.path.abspath(__file__))
         self.default_sounds = []
         
-        # Load default sounds from directory
+       
         self.load_default_sounds()
         
-        # Tracking variables
+  
         self.last_hand_positions = {'left': None, 'right': None}
         self.last_scroll_time = 0
         self.scroll_count = 0
@@ -86,13 +86,13 @@ class SimpleScrollDetector:
         self.last_warning_time = 0
         self.last_movement_time = time.time()
         
-        # State
+      
         self.doomscrolling = False
         self.rickrolled = False
         self.running = True
         self.paused = False
         
-        # Face detection with Haar Cascade
+       
         try:
             self.face_cascade = cv2.CascadeClassifier(
                 cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
@@ -102,11 +102,11 @@ class SimpleScrollDetector:
             self.face_cascade_available = False
             print("Warning: Face cascade not available, using motion detection only")
         
-        # Motion detection
+  
         self.prev_gray = None
         self.motion_threshold = 1000
         
-        # Statistics
+        
         self.stats = {
             'total_focus_time': 0,
             'doomscroll_sessions': 0,
@@ -115,19 +115,19 @@ class SimpleScrollDetector:
             'last_reset': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
         
-        # Load stats from file if exists
+       
         self.load_stats()
     
     def load_default_sounds(self):
         """Load default sound files from directory"""
         sound_extensions = ['.mp3', '.wav', '.ogg', '.flac', '.m4a', '.aac']
         
-        # Check current directory for sound files
+       
         for file in os.listdir(self.sound_directory):
             if any(file.lower().endswith(ext) for ext in sound_extensions):
                 self.default_sounds.append(os.path.join(self.sound_directory, file))
         
-        # Also check a 'sounds' subdirectory
+       
         sounds_dir = os.path.join(self.sound_directory, 'sounds')
         if os.path.exists(sounds_dir):
             for file in os.listdir(sounds_dir):
@@ -179,7 +179,7 @@ class SimpleScrollDetector:
                 pygame.mixer.music.play()
                 print(f"Playing sound: {os.path.basename(sound_file)}")
                 
-                # Wait for sound to finish
+              
                 while pygame.mixer.music.get_busy():
                     time.sleep(0.1)
             except Exception as e:
@@ -196,12 +196,12 @@ class SimpleScrollDetector:
             self.prev_gray = gray
             return False, 0
         
-        # Calculate optical flow
+        
         flow = cv2.calcOpticalFlowFarneback(
             self.prev_gray, gray, None, 0.5, 3, 15, 3, 5, 1.2, 0
         )
         
-        # Calculate magnitude of flow
+     
         magnitude = np.sqrt(flow[..., 0]**2 + flow[..., 1]**2)
         motion_score = np.mean(magnitude) * 1000
         
@@ -211,25 +211,25 @@ class SimpleScrollDetector:
     
     def detect_hand_movement(self, frame):
         """Simple hand movement detection using contour detection"""
-        # Convert to HSV for skin detection
+    
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
         
-        # Define skin color range
+      
         lower_skin = np.array([0, 20, 70], dtype=np.uint8)
         upper_skin = np.array([20, 255, 255], dtype=np.uint8)
         
-        # Create skin mask
+     
         mask = cv2.inRange(hsv, lower_skin, upper_skin)
         
-        # Apply morphological operations
+     
         kernel = np.ones((3, 3), np.uint8)
         mask = cv2.dilate(mask, kernel, iterations=2)
         mask = cv2.erode(mask, kernel, iterations=2)
         
-        # Find contours
+    
         contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         
-        # Look for hand-like contours
+      
         hand_detected = False
         max_area = 0
         hand_center = None
@@ -240,11 +240,11 @@ class SimpleScrollDetector:
                 max_area = area
                 hand_detected = True
                 
-                # Get bounding box
+             
                 x, y, w, h = cv2.boundingRect(contour)
                 hand_center = (x + w // 2, y + h // 2)
                 
-                # Draw rectangle around hand
+             
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
         
         return hand_detected, hand_center
@@ -276,19 +276,19 @@ class SimpleScrollDetector:
         self.stats['doomscroll_sessions'] += 1
         self.save_stats()
         
-        # Play sound from directory
+        
         threading.Thread(target=self.play_alert_sound, daemon=True).start()
         
-        # Open RickRoll in browser
+       
         threading.Thread(target=self.open_rickroll, daemon=True).start()
         
-        # Show popup
+       
         threading.Thread(target=self.show_popup, daemon=True).start()
         
-        # System notification
+      
         self.show_notification("DOOMSCROLL DETECTED!", "You've been RickRolled! Get back to work!")
         
-        # Windows beep
+     
         if platform.system() == "Windows":
             for _ in range(3):
                 winsound.Beep(1000, 500)
@@ -315,7 +315,7 @@ class SimpleScrollDetector:
                 time.sleep(0.15)
         else:
             print("Playing simple beep pattern")
-            # For non-Windows systems
+          
             for _ in range(5):
                 print("\a", end='', flush=True)
                 time.sleep(0.2)
