@@ -546,13 +546,13 @@ class SimpleScrollDetector:
                 print("Error: Could not read frame from webcam")
                 break
             
-            # Process frame
+            
             processed_frame = self.process_frame(frame)
             
-            # Show frame
+            
             cv2.imshow('DoomScroll Detector - Stay Focused!', processed_frame)
             
-            # Handle keyboard input
+            
             key = cv2.waitKey(1) & 0xFF
             
             if key == ord('q'):
@@ -588,10 +588,10 @@ class DoomScrollApp:
         self.root.geometry("650x750")
         self.root.configure(bg='#2c3e50')
         
-        # Make window resizable
+        
         self.root.resizable(True, True)
         
-        # Header
+       
         header = tk.Label(
             self.root,
             text="🚀 DoomScroll Detector",
@@ -602,7 +602,7 @@ class DoomScrollApp:
         )
         header.pack()
         
-        # Subtitle
+        
         subtitle = tk.Label(
             self.root,
             text="Get RickRolled if you doomscroll while working!",
@@ -612,7 +612,7 @@ class DoomScrollApp:
         )
         subtitle.pack()
         
-        # Sound Selection Frame
+        
         sound_frame = tk.Frame(self.root, bg='#34495e', padx=20, pady=15, relief='ridge', bd=2)
         sound_frame.pack(pady=10, fill='x', padx=30)
         
@@ -624,7 +624,7 @@ class DoomScrollApp:
             bg='#34495e'
         ).pack(anchor='w', pady=(0, 10))
         
-        # Sound file display
+        
         self.sound_label = tk.Label(
             sound_frame,
             text="No sound file selected",
