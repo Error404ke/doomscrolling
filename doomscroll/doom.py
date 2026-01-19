@@ -668,7 +668,7 @@ class DoomScrollApp:
         )
         clear_sound_btn.pack(side='left', padx=5)
         
-        # Test Sound Button
+        
         test_sound_btn = tk.Button(
             sound_buttons_frame,
             text="▶️ Test Sound",
@@ -682,7 +682,7 @@ class DoomScrollApp:
         )
         test_sound_btn.pack(side='left', padx=5)
         
-        # Available sounds label
+       
         if self.detector.default_sounds:
             sounds_text = f"Found {len(self.detector.default_sounds)} sound files in directory:"
             tk.Label(
@@ -694,7 +694,7 @@ class DoomScrollApp:
                 anchor='w'
             ).pack(fill='x', pady=(10, 0))
             
-            # Show first few sounds
+            
             for i, sound in enumerate(self.detector.default_sounds[:3]):
                 sound_name = os.path.basename(sound)
                 tk.Label(
@@ -716,7 +716,7 @@ class DoomScrollApp:
                     anchor='w'
                 ).pack(fill='x')
         
-        # Stats Frame
+        
         stats_frame = tk.Frame(self.root, bg='#34495e', padx=20, pady=20, relief='ridge', bd=2)
         stats_frame.pack(pady=15, fill='x', padx=30)
         
@@ -782,7 +782,7 @@ class DoomScrollApp:
         )
         self.start_button.grid(row=0, column=0, padx=5, pady=5)
         
-        # Pause Button
+        
         self.pause_button = tk.Button(
             controls_frame,
             text="⏸️ Pause",
@@ -1145,7 +1145,7 @@ def main():
     
     root.protocol("WM_DELETE_WINDOW", on_closing)
     
-    # Make window stay on top initially
+    
     root.attributes('-topmost', True)
     root.update()
     root.attributes('-topmost', False)
