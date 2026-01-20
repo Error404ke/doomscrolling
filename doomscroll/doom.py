@@ -39,7 +39,6 @@ def install_packages():
             except:
                 print(f"✗ Failed to install {package}")
 
-# Install packages first
 install_packages()
 
 
@@ -1064,7 +1063,7 @@ class DoomScrollApp:
         self.detector.doomscroll_time_threshold = 3 + (7 * (1 - sensitivity))
         self.detector.motion_threshold = 500 + (1500 * sensitivity)
         
-        # Update label
+    
         if sensitivity < 0.4:
             level = "Low"
         elif sensitivity < 0.7:
@@ -1083,13 +1082,13 @@ class DoomScrollApp:
         if response:
             self.status_bar.config(text="Testing RickRoll...", fg='#9b59b6')
             
-            # Play sound
+            
             if self.sound_file and os.path.exists(self.sound_file):
                 threading.Thread(target=self.detector.play_alert_sound, daemon=True).start()
             elif self.detector.default_sounds:
                 threading.Thread(target=self.detector.play_random_sound, daemon=True).start()
             
-            # Open browser
+           
             webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=2)
             
             self.root.after(3000, lambda: self.status_bar.config(
@@ -1102,13 +1101,13 @@ class DoomScrollApp:
         if hasattr(self, 'detector') and hasattr(self.detector, 'stats'):
             stats = self.detector.stats
             
-            # Update all stat labels
+           
             self.stats_labels["Total Focus Time"].config(text=f"{stats['total_focus_time']}s")
             self.stats_labels["DoomScroll Sessions"].config(text=str(stats['doomscroll_sessions']))
             self.stats_labels["Warnings Given"].config(text=str(stats['warnings_given']))
             self.stats_labels["RickRolls Triggered"].config(text=str(stats['rickrolls_triggered']))
         
-        # Schedule next update
+       
         self.root.after(1000, self.update_stats)
 
 
@@ -1122,11 +1121,11 @@ def main():
     print("📊 Features: Focus tracking, statistics, warnings")
     print("\n" + "-"*60)
     
-    # Create main window
+   
     root = tk.Tk()
     app = DoomScrollApp(root)
     
-    # Center window
+    
     root.update_idletasks()
     width = 650
     height = 750
@@ -1134,7 +1133,7 @@ def main():
     y = (root.winfo_screenheight() // 2) - (height // 2)
     root.geometry(f'{width}x{height}+{x}+{y}')
     
-    # Handle window closing
+    
     def on_closing():
         if messagebox.askokcancel("Quit", "Do you want to quit the application?"):
             if hasattr(app, 'detector'):
