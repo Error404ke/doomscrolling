@@ -761,11 +761,11 @@ class DoomScrollApp:
             label.pack(side='left')
             self.stats_labels[stat_name] = label
         
-        # Controls Frame
+      
         controls_frame = tk.Frame(self.root, bg='#2c3e50', pady=20)
         controls_frame.pack()
         
-        # Start Button
+        
         self.start_button = tk.Button(
             controls_frame,
             text="▶️ Start Detection",
@@ -796,7 +796,7 @@ class DoomScrollApp:
         )
         self.pause_button.grid(row=0, column=1, padx=5, pady=5)
         
-        # Reset Button
+        
         self.reset_button = tk.Button(
             controls_frame,
             text="🔄 Reset Stats",
@@ -810,7 +810,7 @@ class DoomScrollApp:
         )
         self.reset_button.grid(row=0, column=2, padx=5, pady=5)
         
-        # Settings Frame
+        
         settings_frame = tk.Frame(self.root, bg='#34495e', padx=20, pady=15, relief='ridge', bd=2)
         settings_frame.pack(pady=15, fill='x', padx=30)
         
@@ -822,7 +822,7 @@ class DoomScrollApp:
             bg='#34495e'
         ).pack(anchor='w', pady=(0, 10))
         
-        # Sensitivity setting
+     
         sensitivity_frame = tk.Frame(settings_frame, bg='#34495e')
         sensitivity_frame.pack(fill='x', pady=5)
         
