@@ -395,7 +395,7 @@ class SimpleScrollDetector:
             self.stats['warnings_given'] += 1
             
             try:
-                # Simple warning in console
+                
                 print("⚠️  WARNING: You're scrolling too much! Get back to work or you'll be RickRolled!")
                 
                 # Flash taskbar (Windows)
@@ -435,7 +435,7 @@ class SimpleScrollDetector:
     
         movement_duration = current_time - self.last_movement_time
         
-        # If lots of movement but no face (looking at phone)
+     
         if (motion_detected or hand_detected) and not face_detected:
             if self.doomscroll_start_time is None:
                 self.doomscroll_start_time = current_time
@@ -443,11 +443,11 @@ class SimpleScrollDetector:
             
             doomscroll_duration = current_time - self.doomscroll_start_time
             
-            # Show warning if approaching threshold
+         
             if doomscroll_duration > self.doomscroll_time_threshold - 2:
                 self.show_warning()
             
-            # Trigger RickRoll if threshold exceeded
+        
             if doomscroll_duration > self.doomscroll_time_threshold and not self.rickrolled:
                 self.trigger_rickroll()
                 self.doomscroll_start_time = None
