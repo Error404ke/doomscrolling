@@ -398,7 +398,7 @@ class SimpleScrollDetector:
                 
                 print("⚠️  WARNING: You're scrolling too much! Get back to work or you'll be RickRolled!")
                 
-                # Flash taskbar (Windows)
+                
                 if platform.system() == "Windows":
                     flash_window = tk.Tk()
                     flash_window.withdraw()
@@ -452,11 +452,11 @@ class SimpleScrollDetector:
                 self.trigger_rickroll()
                 self.doomscroll_start_time = None
         else:
-            # Reset doomscroll timer
+         
             self.doomscroll_start_time = None
             self.doomscrolling = False
             
-            # Track focus time
+           
             if face_detected:
                 self.stats['total_focus_time'] += 1
                 if current_time - self.focus_start_time > self.focus_time_threshold:
