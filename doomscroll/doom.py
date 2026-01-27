@@ -325,7 +325,7 @@ class SimpleScrollDetector:
             webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=2)
             time.sleep(1)
             
-            # Try to make it fullscreen
+            
             pyautogui.press('f')
         except:
             pass
@@ -388,7 +388,7 @@ class SimpleScrollDetector:
                 pass
     
     def show_warning(self):
-        """Show warning before RickRoll"""
+     
         current_time = time.time()
         if current_time - self.last_warning_time > 10:
             self.last_warning_time = current_time
@@ -466,7 +466,7 @@ class SimpleScrollDetector:
                                              f"You've been focused for {self.focus_time_threshold} seconds!")
                         self.focus_start_time = current_time
         
-        # Add overlay
+      
         self.add_status_overlay(output_frame, face_detected, hand_detected, 
                                motion_detected, self.doomscrolling)
         
@@ -476,12 +476,12 @@ class SimpleScrollDetector:
         """Add status overlay to frame"""
         h, w = frame.shape[:2]
         
-        # Create semi-transparent overlay
+       
         overlay = frame.copy()
         cv2.rectangle(overlay, (10, 10), (350, 160), (0, 0, 0), -1)
         cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
         
-        # Status texts
+      
         status_color = (0, 255, 0) if face_detected else (0, 0, 255)
         status_text = "FOCUSED ✓" if face_detected else "DISTRACTED ✗"
         
@@ -500,11 +500,11 @@ class SimpleScrollDetector:
             cv2.putText(frame, warning_text, (20, 130),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
         
-        # Add watermark
+      
         cv2.putText(frame, "DoomScroll Detector v1.0", (w - 250, h - 20),
                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
         
-        # Show current sound file
+     
         if self.sound_file:
             sound_name = os.path.basename(self.sound_file)
             cv2.putText(frame, f"Sound: {sound_name[:15]}...", (w - 250, h - 40),
