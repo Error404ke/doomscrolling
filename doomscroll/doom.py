@@ -1,4 +1,4 @@
-import cv2
+T5import cv2
 import numpy as np
 import time
 import threading
@@ -721,7 +721,7 @@ class DoomScrollApp:
         
         tk.Label(
             stats_frame,
-            text="📊 Your Statistics",
+            text=" Your Statistics",
             font=('Arial', 16, 'bold'),
             fg='#1abc9c',
             bg='#34495e'
@@ -857,7 +857,7 @@ class DoomScrollApp:
         )
         self.sensitivity_label.pack(side='right')
         
-        # Test RickRoll Button
+      
         test_frame = tk.Frame(self.root, bg='#2c3e50', pady=15)
         test_frame.pack()
         
@@ -874,7 +874,7 @@ class DoomScrollApp:
         )
         test_button.pack()
         
-        # Instructions
+    
         instructions_frame = tk.Frame(self.root, bg='#34495e', padx=20, pady=15, relief='ridge', bd=2)
         instructions_frame.pack(pady=15, fill='x', padx=30)
         
@@ -905,7 +905,7 @@ class DoomScrollApp:
                 anchor='w'
             ).pack(fill='x', pady=2)
         
-        # Status bar
+    
         self.status_bar = tk.Label(
             self.root,
             text="Ready to start detection",
@@ -918,7 +918,7 @@ class DoomScrollApp:
         )
         self.status_bar.pack(side='bottom', fill='x')
         
-        # Update stats periodically
+     
         self.update_stats()
     
     def select_sound_file(self):
@@ -962,7 +962,7 @@ class DoomScrollApp:
         if self.sound_file and os.path.exists(self.sound_file):
             self.status_bar.config(text="Testing sound file...", fg='#3498db')
             
-            # Play sound in separate thread
+         
             def play_test_sound():
                 try:
                     if PYGAME_AVAILABLE:
