@@ -635,11 +635,11 @@ class DoomScrollApp:
         )
         self.sound_label.pack(fill='x', pady=5)
         
-        # Sound buttons frame
+      
         sound_buttons_frame = tk.Frame(sound_frame, bg='#34495e')
         sound_buttons_frame.pack(fill='x', pady=10)
         
-        # Select Sound Button
+     
         select_sound_btn = tk.Button(
             sound_buttons_frame,
             text="🎵 Select Sound File",
@@ -653,7 +653,7 @@ class DoomScrollApp:
         )
         select_sound_btn.pack(side='left', padx=5)
         
-        # Clear Sound Button
+      
         clear_sound_btn = tk.Button(
             sound_buttons_frame,
             text="🗑️ Clear Sound",
