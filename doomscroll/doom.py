@@ -1005,22 +1005,22 @@ class DoomScrollApp:
         self.reset_button.config(state='disabled')
         self.status_bar.config(text="Detection started - Monitoring your focus...", fg='#27ae60')
         
-        # Pass sound file to detector
+       
         if self.sound_file:
             self.detector.set_sound_file(self.sound_file)
         
-        # Start detector in separate thread
+        
         detector_thread = threading.Thread(target=self.detector.run)
         detector_thread.daemon = True
         detector_thread.start()
         
-        # Update button after a short delay
+   
         self.root.after(1000, lambda: self.start_button.config(
             text="✅ Detection Running",
             bg='#27ae60'
         ))
         
-        # Re-enable reset button after 2 seconds
+       
         self.root.after(2000, lambda: self.reset_button.config(state='normal'))
     
     def toggle_pause(self):
