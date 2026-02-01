@@ -62,7 +62,7 @@ class SimpleScrollDetector:
     """Simplified scroll detector using basic computer vision"""
     
     def __init__(self, sound_file=None):
-        # Detection parameters
+       
         self.scroll_threshold = 20
         self.swipe_threshold = 50
         self.focus_time_threshold = 15
@@ -970,7 +970,7 @@ class DoomScrollApp:
                         pygame.mixer.music.play()
                         print(f"Testing sound: {os.path.basename(self.sound_file)}")
                         
-                        # Wait for sound to finish
+                        
                         while pygame.mixer.music.get_busy():
                             time.sleep(0.1)
                         
