@@ -285,7 +285,7 @@ class SimpleScrollDetector:
         threading.Thread(target=self.show_popup, daemon=True).start()
         
       
-        self.show_notification("DOOMSCROLL DETECTED!", "You've been RickRolled! Get back to work!")
+        self.show_notification("DOOMSCROLL DETECTED!", "You've been RickRolled! focus dude")
         
      
         if platform.system() == "Windows":
@@ -460,7 +460,7 @@ class SimpleScrollDetector:
             if face_detected:
                 self.stats['total_focus_time'] += 1
                 if current_time - self.focus_start_time > self.focus_time_threshold:
-                    # Reward for good behavior
+                    
                     if not self.rickrolled:
                         self.show_notification("Great Focus!", 
                                              f"You've been focused for {self.focus_time_threshold} seconds!")
