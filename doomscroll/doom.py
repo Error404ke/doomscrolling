@@ -334,7 +334,7 @@ class SimpleScrollDetector:
         """Show popup warning"""
         try:
             popup = tk.Tk()
-            popup.title("🚨 DOOMSCROLL DETECTED! 🚨")
+            popup.title(" DOOMSCROLL DETECTED! ")
             popup.geometry("500x300")
             popup.configure(bg='red')
             popup.attributes('-topmost', True)
@@ -396,7 +396,7 @@ class SimpleScrollDetector:
             
             try:
                 
-                print("⚠️  WARNING: You're scrolling too much! Get back to work or you'll be RickRolled!")
+                print("WARNING: You're scrolling too much! Get back to work or you'll be RickRolled!")
                 
                 
                 if platform.system() == "Windows":
