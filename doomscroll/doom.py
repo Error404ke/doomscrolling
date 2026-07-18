@@ -341,7 +341,7 @@ class SimpleScrollDetector:
             
             label = tk.Label(
                 popup,
-                text="🎵 NEVER GONNA GIVE YOU UP! 🎵\n\n"
+                text="NEVER GONNA GIVE YOU UP! 🎵\n\n"
                      "You've been RickRolled for doomscrolling!\n\n"
                      "Get back to work!\n\n"
                      "This window will close in 20 seconds...",
@@ -593,7 +593,7 @@ class DoomScrollApp:
        
         header = tk.Label(
             self.root,
-            text="🚀 DoomScroll Detector",
+            text="DoomScroll Detector",
             font=('Arial', 24, 'bold'),
             fg='#ecf0f1',
             bg='#2c3e50',
@@ -617,7 +617,7 @@ class DoomScrollApp:
         
         tk.Label(
             sound_frame,
-            text="🔊 Sound Settings",
+            text="Sound Settings",
             font=('Arial', 16, 'bold'),
             fg='#1abc9c',
             bg='#34495e'
@@ -642,7 +642,7 @@ class DoomScrollApp:
      
         select_sound_btn = tk.Button(
             sound_buttons_frame,
-            text="🎵 Select Sound File",
+            text="Select Sound File",
             command=self.select_sound_file,
             font=('Arial', 11),
             bg='#3498db',
@@ -656,7 +656,7 @@ class DoomScrollApp:
       
         clear_sound_btn = tk.Button(
             sound_buttons_frame,
-            text="🗑️ Clear Sound",
+            text="Clear Sound",
             command=self.clear_sound_file,
             font=('Arial', 11),
             bg='#e74c3c',
@@ -671,7 +671,7 @@ class DoomScrollApp:
         
         test_sound_btn = tk.Button(
             sound_buttons_frame,
-            text="▶️ Test Sound",
+            text="Test Sound",
             command=self.test_selected_sound,
             font=('Arial', 11),
             bg='#2ecc71',
@@ -769,7 +769,7 @@ class DoomScrollApp:
         
         self.start_button = tk.Button(
             controls_frame,
-            text="▶️ Start Detection",
+            text="Start Detection",
             command=self.start_detection,
             font=('Arial', 14, 'bold'),
             bg='#27ae60',
@@ -785,7 +785,7 @@ class DoomScrollApp:
         
         self.pause_button = tk.Button(
             controls_frame,
-            text="⏸️ Pause",
+            text=" Pause",
             command=self.toggle_pause,
             font=('Arial', 14),
             bg='#f39c12',
@@ -800,7 +800,7 @@ class DoomScrollApp:
         
         self.reset_button = tk.Button(
             controls_frame,
-            text="🔄 Reset Stats",
+            text="Reset Stats",
             command=self.reset_stats,
             font=('Arial', 14),
             bg='#e74c3c',
@@ -817,7 +817,7 @@ class DoomScrollApp:
         
         tk.Label(
             settings_frame,
-            text="⚙️ Detection Settings",
+            text="Detection Settings",
             font=('Arial', 16, 'bold'),
             fg='#1abc9c',
             bg='#34495e'
@@ -881,7 +881,7 @@ class DoomScrollApp:
         
         tk.Label(
             instructions_frame,
-            text="💡 How It Works:",
+            text=" How It Works:",
             font=('Arial', 14, 'bold'),
             fg='#1abc9c',
             bg='#34495e'
@@ -1001,7 +1001,7 @@ class DoomScrollApp:
     
     def start_detection(self):
         """Start the doomscroll detection"""
-        self.start_button.config(state='disabled', bg='#95a5a6', text="⏳ Starting...")
+        self.start_button.config(state='disabled', bg='#95a5a6', text=" Starting...")
         self.pause_button.config(state='normal')
         self.reset_button.config(state='disabled')
         self.status_bar.config(text="Detection started - Monitoring your focus...", fg='#27ae60')
@@ -1017,7 +1017,7 @@ class DoomScrollApp:
         
    
         self.root.after(1000, lambda: self.start_button.config(
-            text="✅ Detection Running",
+            text=" Detection Running",
             bg='#27ae60'
         ))
         
@@ -1028,10 +1028,10 @@ class DoomScrollApp:
         """Toggle pause state"""
         self.detector.paused = not self.detector.paused
         if self.detector.paused:
-            self.pause_button.config(text="▶️ Resume", bg='#27ae60')
+            self.pause_button.config(text=" Resume", bg='#27ae60')
             self.status_bar.config(text="Detection PAUSED", fg='#f39c12')
         else:
-            self.pause_button.config(text="⏸️ Pause", bg='#f39c12')
+            self.pause_button.config(text=" Pause", bg='#f39c12')
             self.status_bar.config(text="Detection RESUMED", fg='#27ae60')
     
     def reset_stats(self):
@@ -1117,9 +1117,9 @@ def main():
     print("\n" + "="*60)
     print("        DOOMSCROLL DETECTOR & RICKROLLER")
     print("="*60)
-    print("\n🎯 Purpose: Keep you focused while working/studying")
-    print("🔊 Feature: Play custom sounds when doomscrolling")
-    print("📊 Features: Focus tracking, statistics, warnings")
+    print("\nPurpose: Keep you focused while working/studying")
+    print("Feature: Play custom sounds when doomscrolling")
+    print("Features: Focus tracking, statistics, warnings")
     print("\n" + "-"*60)
     
    
